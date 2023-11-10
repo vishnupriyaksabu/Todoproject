@@ -1,0 +1,17 @@
+.banner{
+    background-color: #103a63;
+    width:100% ;
+    height: 200px;
+    margin-bottom:30px;
+}
+.banner-text{
+   
+    top:12% ;
+    left:35%;
+    text-align:center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: #ff8b0f;
+    position:absolute;
+    transform:transform;
+    width:20%;
+}

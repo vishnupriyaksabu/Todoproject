@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    
+                    <h1>TODO</h1>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <form method="POST" class="p-3 shadow">
+            {% csrf_token %}
+            <div class="form_group">
+                <input type="text" class="form-control" name="task" placeholder="enter the task name">
+            </div> 
+            <div class="form_group">
+                <input type="text"  class="form-control" name="Priority" placeholder="enter the priority"><br>
+            </div>
+            <div class="form_group">
+                <input type="date"  class="form-control" name="date" placeholder="enter the date"><br>
+            </div>
+            <input type="submit" class="btn btn-Success">
+        </form>
+        <!-- code for showing result in the same page -->
+        <!-- {%  for i in tasks %}
+        {{i.Name}}<br>
+        {{i.priority}}
+        {% endfor %} -->
+   
+    </div>
+    <div class="col-md-6">
+        <h4  style="color: rgb(13, 12, 12);background-color: rgb(203, 237, 100); text-align: center;">Task to be performed</h4>
+        {%  for i in tasks %}
+        <div class="shadow card">
+            <div class="card-body">
+               <h5 class="card-title">{{i.Name}}</h5>
+               <p><b> {{i.priority}}</b></p>
+               <p><b> {{i.date}}</b></p>
+               <a class="btn btn-danger" href="{% url 'delete' i.id %}">DONE</a>
+               <a class="btn btn-Success" href="{% url 'update' i.id %}">UPDATE</a>
+            </div>
+      </div><br>
+      {% endfor %}
+    </div>
+
+
+</div>
+</div>
+      
+{% endblock %}
+  
+  
